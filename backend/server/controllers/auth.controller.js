@@ -19,7 +19,7 @@ const login = async(req, res) => {
         }
         //generar jwt
         const token = await generarJWT (usuario.id);
-        res.json({
+        res.status(200).json({
             nombre: usuario.nombre,
             token
         })

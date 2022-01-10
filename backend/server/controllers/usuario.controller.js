@@ -8,7 +8,7 @@ const usuarioGet = async(req, res, next) =>{
         const { nombre } = req.usuario;    
         const usuarios = await Usuario.find();
         
-        res.json({ 
+        res.status(200).json({ 
             nombre,
             usuarios });
 
@@ -34,7 +34,7 @@ const usuarioPost = async(req, res, next) =>{
     
         await usuario.save();
         //console.log('usuario creado');
-        res.json({ msg: 'Usuario creado' });   
+        res.status(200).json({ msg: 'Usuario creado' });   
 
     }
     catch(err){
@@ -67,7 +67,7 @@ const usuarioDelete = async(req, res, next) =>{
         console.log({id});
         await Usuario.deleteOne({ _id: id });
       
-        res.json({
+        res.status(200).json({
             msg: 'Usuario eliminado'
         })
 
